@@ -7,5 +7,5 @@ test('Account confirmation', async({page})=>{
      const loginPage=new LoginPage(page);
      await loginPage.goTo();
      const myAccountPage=await loginPage.doLoginWith(userData.email,userData.password);
-     await expect(await myAccountPage.isAccountVisible()).toBeTruthy();
+     await expect(myAccountPage.profileLocator).toBeVisible();
 })
