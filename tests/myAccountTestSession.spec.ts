@@ -4,12 +4,9 @@ import { LoginPage } from '../pages/LoginPage';
 import { MyAccountPage } from '../pages/MyAccountPage';
 
 test('Account confirmation', async({page})=>{
-     const userData=getUserData();
-     const loginPage=new LoginPage(page);
-     await loginPage.goTo();
-     const myAccountPage=await loginPage.doLoginWith(userData.email,userData.password);
+     //await loginPage.goTo();
+     await page.goto('/my-account');
+     const myAccountPage=new MyAccountPage(page);
      await expect(myAccountPage.profileLocator).toBeVisible();
      await expect(myAccountPage.profileLocator).toContainText('Shharma');
-     await myAccountPage.chooseCategory();
-
 })
