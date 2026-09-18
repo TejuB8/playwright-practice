@@ -20,13 +20,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Chrome
-        run: npx playwright install --with-deps chrome
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: Run E2E tests
-        run: npx playwright test
+        run: npx playwright test tests
         env:
           TEST_ENV: qa
+          BASE_URL: ${{ vars.BASE_URL }}
+          EMAIL: ${{ secrets.EMAIL}}
+          PASSWORD: ${{secrets.PASSWORD}}
 
       - name: Upload Playwright report
         if: always()
