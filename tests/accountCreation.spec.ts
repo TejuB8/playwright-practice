@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { newUserData } from '../Data/customer.data';
 
-test('test', async ({ page }) => {
+test('test', { tag: '@regression' }, async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Sign in' }).click();
   //await page.getByRole('button', { name: 'Create an account' }).click();

@@ -3,7 +3,7 @@ import { getUserData} from '../Data/user.data';
 import { LoginPage } from '../pages/LoginPage';
 import { MyAccountPage } from '../pages/MyAccountPage';
 
-test('Account confirmation', async({page})=>{
+test('Account confirmation',  {tag:'@regression'}, async({page})=>{
      const userData=getUserData();
      const loginPage=new LoginPage(page);
      await loginPage.goTo();
