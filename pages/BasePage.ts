@@ -15,6 +15,9 @@ export class BasePage{
         await locator.click();
 
     }
+    async elementVisibility(locator:Locator):Promise<boolean>{
+       return await locator.isVisible();
+    }
     async fillValue(locator:Locator, value:string){
         await locator.fill(value);
     }
