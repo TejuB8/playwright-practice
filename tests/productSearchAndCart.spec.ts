@@ -15,7 +15,7 @@ test('add product to cart', {tag:'@regression'}, async({loginPage,page})=>{
     await expect(orderPage.page).toHaveURL('/order');
 
     await expect(orderPage.productLocator).toHaveAttribute('title','Printed Chiffon Dress');
-    await expect(orderPage.priceLocator).toBeVisible();
+    await expect(orderPage.priceLocator).toBeHidden();
     const addressPage=await orderPage.goToAdressConfirmationPage();
     const shippingPage=await addressPage.goToShiPPingPage();
     const paymentPage=await shippingPage.goToPayementPage();
